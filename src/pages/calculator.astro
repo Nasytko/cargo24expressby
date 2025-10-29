@@ -1,0 +1,15 @@
+---
+import Base from '@/layouts/Base.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+const mapTitle = {"ru":"Калькулятор","en":"Calculator","zh":"运费计算器"}["ru"];
+---
+<Base lang="ru" title={{mapTitle}} description="Рассчитайте стоимость доставки">
+  <Header />
+  <main class="container py-10">
+    <h1 class="font-display text-3xl mb-6">{{mapTitle}}</h1>
+    <p class="text-ink-500 mb-6">Демо-страница калькулятора. Интерактивный виджет будет внедрён как остров (React/Svelte).</p>
+    <div class="p-6 rounded-2xl border border-border">Форма расчёта появится здесь.</div>
+  </main>
+  <Footer />
+</Base>

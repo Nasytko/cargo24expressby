@@ -1,0 +1,27 @@
+---
+import Base from '@/layouts/Base.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+const jsonLd = {
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Cargo24Express",
+  "url":"https://cargo24express.by/zh/",
+  "address":{"@type":"PostalAddress","addressLocality":"Гродно","streetAddress":"ул. Школьная, д. 4","addressCountry":"BY"},
+  "contactPoint":{"@type":"ContactPoint","telephone":"+375292395299","contactType":"customer service","areaServed":["BY","RU","KZ"],"availableLanguage":["ru","en","zh"]}
+};
+---
+<Base lang="zh" title="中国到白俄罗斯货运 — Cargo24Express" description="从中国到白俄罗斯及独联体。在线费用计算、保险、门到门配送。" jsonLd={jsonLd}>
+  <Header />
+  <main class="container py-10">
+    <section class="rounded-2xl bg-ink-900 text-white p-10 shadow-glow">
+      <h1 class="font-display text-4xl md:text-5xl mb-4">从中国发货运输</h1>
+      <p class="text-white/90 max-w-2xl">15公斤起。快速透明，提供完整单证支持。在线计算价格。</p>
+      <div class="mt-6 flex gap-3">
+        <a href="/zh/calculator/" class="inline-flex items-center px-5 py-3 rounded-xl bg-brand-600 text-white shadow-glow hover:bg-brand-500 transition">Рассчитать стоимость</a>
+        <a href="/zh/contacts/" class="inline-flex items-center px-5 py-3 rounded-xl bg-white text-ink-900 hover:bg-brand-50 transition">Связаться</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

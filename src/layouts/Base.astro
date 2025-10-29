@@ -1,0 +1,35 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'ru'|'en'|'zh';
+  jsonLd?: any;
+}
+const { title='Cargo24Express — Карго из Китая', description='Карго-доставка из Китая в Беларусь и СНГ. Расчёт стоимости, сроки, таможня.', lang='ru', jsonLd } = Astro.props;
+
+const locales = {
+  ru: { href: Astro.url.origin + '/', label: 'Русский' },
+  en: { href: Astro.url.origin + '/en/', label: 'English' },
+  zh: { href: Astro.url.origin + '/zh/', label: '中文' },
+};
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="alternate" hreflang="ru" href={locales.ru.href} />
+    <link rel="alternate" hreflang="en" href={locales.en.href} />
+    <link rel="alternate" hreflang="zh" href={locales.zh.href} />
+    <link rel="alternate" hreflang="x-default" href={locales.ru.href} />
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#FF6A00" />
+    {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
+    <link rel="stylesheet" href="/fonts.css" />
+  </head>
+  <body class="font-sans text-ink-700 antialiased bg-white">
+    <slot />
+  </body>
+</html>
